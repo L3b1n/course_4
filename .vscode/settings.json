@@ -71,7 +71,8 @@
         "queue": "cpp",
         "set": "cpp",
         "numeric": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "fstream": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
