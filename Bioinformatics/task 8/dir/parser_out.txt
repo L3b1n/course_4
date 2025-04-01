@@ -1,0 +1,12 @@
+Hydrogen bonds: O...*NN[D381]
+
+Hydrophobic contacts (C-C): M290(2), 0LI0(188), I313(1), T315(6), A269(4), A380(7), D381(14), H361(7), L298(3), I293(1), V256(1), L370(4), M318(7), L248(2), Y253(2), G321(4), F317(2), T319(2), Y320(1)
+
+pi-pi stacking interactions: 0LI1(157), H361(6), F317(5)
+
+T-stacking (face-to-edge) interactions: Y253(5)
+
+Cation-pi interactions: 0LI1(6)
+
+Salt Bridges: None(37371)
+
