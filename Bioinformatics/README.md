@@ -6,3 +6,4 @@
  * [task 5](./task%205/)
  * [task 6](./task%206/)
  * [task 7](./task%207/)
+ * [task 8](./task%208/)
