@@ -1,0 +1,63 @@
+input_stream: "input_video"
+output_stream: "output_video"
+
+node {
+    calculator: "FlowLimiterCalculator"
+    input_stream: "input_video"
+    input_stream: "FINISHED:output_image"
+    input_stream_info: {
+        tag_index: "FINISHED"
+        back_edge: true
+    }
+    output_stream: "throttled_input_video"
+}
+
+node {
+    calculator: "ImageToTensorCalculator"
+    input_stream: "IMAGE:throttled_input_video"
+    output_stream: "TENSORS:image_tensor"
+    options: {
+        [mediapipe.ImageToTensorCalculatorOptions.ext] {
+            output_tensor_width: 640
+            output_tensor_height: 360
+            keep_aspect_ratio: false
+            output_tensor_float_range {
+                min: -1.0
+                max: 1.0
+            }
+            border_mode: BORDER_ZERO
+        }
+    }
+}
+
+node {
+    calculator: "InferenceCalculator"
+    input_stream: "TENSORS:image_tensor"
+    output_stream: "TENSORS:denoised_tensor"
+    options: {
+        [mediapipe.InferenceCalculatorOptions.ext] {
+            model_path: "//mediapipe/models/whitebox_cartoon_gan_360x640_fp16.tflite"
+            delegate { xnnpack {} }
+        }
+    }
+}
+
+node {
+    calculator: "TensorsToImageCalculator"
+    input_stream: "TENSORS:denoised_tensor"
+    output_stream: "IMAGE:output_image"
+    options: {
+        [mediapipe.TensorsToImageCalculatorOptions.ext] {
+            input_tensor_float_range {
+                min: -1.0
+                max: 1.0
+            }
+        }
+    }
+}
+
+node {
+    calculator: "FromImageCalculator"
+    input_stream: "IMAGE:output_image"
+    output_stream: "IMAGE_CPU:output_video"
+}
