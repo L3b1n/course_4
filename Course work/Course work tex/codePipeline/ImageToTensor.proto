@@ -1,0 +1,18 @@
+node {
+    calculator: "ImageToTensorCalculator"
+    input_stream: "IMAGE:throttled_input_video"
+    output_stream: "TENSORS:image_tensor"
+    options: {
+        [mediapipe.ImageToTensorCalculatorOptions.ext] {
+            output_tensor_width: `width`
+            output_tensor_height: `height`
+            keep_aspect_ratio: false
+            output_tensor_float_range {
+                min: `min_float`
+                max: `max_float`
+            }
+            gpu_origin: `CONVENTIONAL`
+            border_mode: BORDER_ZERO
+        }
+    }
+}
