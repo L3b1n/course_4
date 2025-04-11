@@ -1,0 +1,14 @@
+node {
+    calculator: "InferenceCalculator"
+    input_stream: "TENSORS:image_tensor"
+    output_stream: "TENSORS:denoised_tensor"
+    options: {
+        [mediapipe.InferenceCalculatorOptions.ext] {
+            model_path: "path/to/the/model"
+            use_gpu: `true/false`
+            use_nnapi: `true/false`
+            cpu_num_thread: `-1`
+            delegate { `delegate` {} }
+        }
+    }
+}
