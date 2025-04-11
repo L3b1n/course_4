@@ -1,0 +1,6 @@
+node {
+    calculator: "FromImageCalculator"
+    input_stream: "IMAGE:output_image"
+    output_stream: "IMAGE_CPU:output_video"
+    output_stream: "IMAGE_GPU:output_video"
+}
