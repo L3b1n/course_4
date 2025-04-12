@@ -1,0 +1,5 @@
+# CPU/GPU buffer containing the current frame. (type: ImageFrame/GpuBuffer)
+input_stream: "input_video"
+
+# Output image with rendered results. (type: ImageFrame/GpuBuffer)
+output_stream: "output_video"
