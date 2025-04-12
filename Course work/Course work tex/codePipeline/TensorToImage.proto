@@ -1,0 +1,15 @@
+node {
+    calculator: "TensorsToImageCalculator"
+    input_stream: "TENSORS:denoised_tensor"
+    output_stream: "IMAGE:output_image"
+    options: {
+        [mediapipe.TensorsToImageCalculatorOptions.ext] {
+            gpu_origin: "CONVENTIONAL"
+            input_tensor_float_range {
+                min: `min`
+                max: `max`
+            }
+            tensor_position: 0
+        }
+    }
+}
