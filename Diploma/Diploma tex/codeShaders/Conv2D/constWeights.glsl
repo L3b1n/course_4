@@ -1,0 +1,8 @@
+#ifdef USE_WEIGHT_CONSTANTS
+#ifdef USE_COMPONENT_R_PLANE_0
+const FLOAT_PRECISION vec4 weights1[] = vec4[](
+    _PLACEHOLDER_WEIGHT1_VEC_CONSTANTS_
+);
+#endif
+...
+#endif
