@@ -1,0 +1,70 @@
+\newcommand*{\mentor}[1]{\gdef\@mentor{#1}}
+\newcommand*{\@mentor}{}
+
+\newcommand*{\subfaculty}[1]{\gdef\@subfaculty{#1}}
+\newcommand*{\@subfaculty}{}
+
+\newcommand*{\reviewer}[1]{\gdef\@reviewer{#1}}
+\newcommand*{\@reviewer}{}
+
+\newcommand*{\titleDay}[1]{\gdef\@titleDay{#1}}
+\newcommand*{\@titleDay}{}
+
+\newcommand*{\titleMonth}[1]{\gdef\@titleMonth{#1}}
+\newcommand*{\@titleMonth}{}
+
+\renewcommand{\maketitle}
+{
+\begin{titlepage}
+  \begin{center}
+  \textbf{
+    \small{МИНИСТЕРСТВО ОБРАЗОВАНИЯ РЕСПУБЛИКИ БЕЛАРУСЬ}\\
+    \vspace{0.5em}
+    \small{БЕЛОРУССКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ}\\
+    \vspace{0.5em}
+    \small{ФАКУЛЬТЕТ ПРИКЛАДНОЙ МАТЕМАТИКИ И ИНФОРМАТИКИ}\\
+    \vspace{0.5em}
+    \small{Кафедра дискретной математики и алгоритмики}\\
+    \vspace{0.5em}
+    \@subfaculty
+  }
+  \end{center}
+  
+  \vspace{5em}
+  
+  \begin{center}
+    \@author \\
+    \vspace{2em}
+    \MakeUppercase{\textbf{\@title}} \\
+    \vspace{3em}
+    Дипломная работа
+  \end{center}
+  
+  \vspace{2.5em}
+  
+  \begin{flushright}
+    \begin{minipage}[H]{0.35\textwidth}
+      \begin{flushleft}
+        Научный руководитель: \\
+        \@mentor
+      \end{flushleft}
+    \end{minipage}
+  \end{flushright}
+
+  \vspace{1em}
+
+  \begin{flushleft}
+    Допущена к защите \\
+    \vspace{1em}
+    <<\@titleDay>> \@titleMonth $ $ \the\year $ $ г. \\
+    \vspace{1em}
+    \@reviewer
+  \end{flushleft}
+  
+  \vfill
+  
+  \begin{center}
+    Минск, \the\year
+  \end{center}
+\end{titlepage}
+}
